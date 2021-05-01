@@ -11,6 +11,16 @@ import "./NavBar.scss";
 const NavBar = () => {
   const wrapper = useRef(null);
   const [dropDown, setDropDown] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleScroll = () => {
+    const offset = window.pageYOffset;
+    offset > 100 ? setScrolled(true) : setScrolled(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, false);
@@ -26,7 +36,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navigation-container" ref={wrapper}>
+    <div className={`navigation-container ${scrolled ? 'scrolled' : null}`} ref={wrapper}>
       <div className="logo">
         <Link to="/">
           <h4>Smart Home</h4>
@@ -45,7 +55,7 @@ const NavBar = () => {
         <Link to="/shop" className="option">
           Contact
         </Link>
-        <Link to="/shop" className="option">
+        <Link to="/login" className="option">
           Log in
         </Link>
         <BiCartAlt

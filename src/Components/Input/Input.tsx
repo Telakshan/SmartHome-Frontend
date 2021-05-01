@@ -3,8 +3,11 @@ import React from "react";
 import "./Input.scss";
 
 interface InputProps {
-  handleChange: any;
+  handleChange?: any;
+  name?: string;
   label: string;
+  onChange?: any;
+  value: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -13,15 +16,18 @@ const Input: React.FC<InputProps> = ({
   ...otherProps
 }) => {
   return (
-    <label className="input">
-      <input
-        className="input__field"
-        type="text"
-        {...otherProps}
-        onChange={handleChange}
-      />
-      <span className="input__label">Some Fancy Label</span>
-    </label>
+    <div className="group">
+    <input className={`form-input`} onChange={handleChange} {...otherProps} />
+    {label ? (
+      <label
+        className={`form-input-label ${
+          otherProps.value.length ? "shrink" : ""
+        }`}
+      >
+        {label}
+      </label>
+    ) : null}
+  </div>
   );
 };
 
