@@ -6,7 +6,7 @@ import "./RegisterAndLogin.scss";
 
 const RegisterAndLogin = () => {
   return (
-    <div>
+    <div className='register-login'>
       <Login />
       <Register />
     </div>

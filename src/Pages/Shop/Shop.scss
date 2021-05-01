@@ -1,0 +1,11 @@
+.shop-container {
+  margin-top: 10vh;
+
+  .products {
+    margin: 0 auto auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+  }
+}

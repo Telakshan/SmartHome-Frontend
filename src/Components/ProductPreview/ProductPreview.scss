@@ -1,0 +1,35 @@
+.product-item {
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+
+  .product-item-image > img{
+    height: 200px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .title{
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .description{
+      color: #666;
+  }
+
+  .price{
+      
+  }
+
+  button{
+      margin: 0 auto auto;
+  }
+
+}
