@@ -9,3 +9,20 @@
     grid-gap: 5px;
   }
 }
+
+
+@media(max-width: 1000px){
+    .shop-container{
+        .products{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media(max-width: 800px){
+    .shop-container{
+        .products{
+            grid-template-columns: 1fr
+        }
+    }
+}

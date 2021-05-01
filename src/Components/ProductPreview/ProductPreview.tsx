@@ -9,13 +9,13 @@ const ProductPreview = ({ title, description, imageUrl, price }) => {
     <div className="product-item">
       <div className="product-item-image"
 
-// style={
-//    { backgroundImage: `url('../../Assets/Images/p1.jpg')`}
-// }
+style={
+   { backgroundImage: `url(${imageUrl})`}
+}
       
       >
-        <img src={imageUrl}
-        />
+        {/* <img src={imageUrl}
+        /> */}
        
       </div>
       <p className="title">{title}</p>

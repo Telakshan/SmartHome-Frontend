@@ -58,10 +58,16 @@ const NavBar = () => {
         <Link to="/login" className="option">
           Log in
         </Link>
+        <div className='cart-icon-container'>
+          <span className='number-of-items'>
+            5
+          </span>
         <BiCartAlt
           className="cart-icon"
           onClick={() => setDropDown(!dropDown)}
         />
+        </div>
+       
       </div>
       {dropDown ? <Dropdown /> : null}
     </div>
