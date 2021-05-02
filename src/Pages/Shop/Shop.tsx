@@ -1,16 +1,15 @@
-import React from "react";
-import Button from "../../Components/Button/Button";
 import ProductPreview from "../../Components/ProductPreview/ProductPreview";
-
+import { ProductsContext } from "../../Hooks/Products";
 import "./Shop.scss";
-
-import DUMMY_DATA from "./Assets/DUMMY";
+import { useContext } from "react";
 
 const Shop = () => {
+  const { products } = useContext(ProductsContext);
+
   return (
     <div className="shop-container">
       <div className="products">
-        {DUMMY_DATA.map(({ id, title, description, price, imageUrl }) => (
+        {products.map(({ id, title, description, price, imageUrl }) => (
           <ProductPreview
             key={id}
             title={title}

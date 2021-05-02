@@ -6,18 +6,26 @@ import RegisterAndLogin from "./Pages/RegisterAndLogin/RegisterAndLogin";
 import NavBar from "./Components/NavBar/NavBar";
 import Shop from "./Pages/Shop/Shop";
 import Landing from "./Pages/Landing/Landing";
+import Contact from "./Pages/Contact/Contact";
+import ProductsContextProvider from "./Hooks/Products";
+import CartContextProvider from "./Hooks/CartContext";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/login" component={RegisterAndLogin} />
-        <Route exact path="/shop" component={Shop} />
-        <Redirect to="/" />
-      </Switch>
-    </div>
+    <ProductsContextProvider>
+      <div className="App">
+        <CartContextProvider>
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/login" component={RegisterAndLogin} />
+            <Route exact path="/shop" component={Shop} />
+            <Route exact path="/contact" component={Contact} />
+            <Redirect to="/" />
+          </Switch>
+        </CartContextProvider>
+      </div>
+    </ProductsContextProvider>
   );
 }
 

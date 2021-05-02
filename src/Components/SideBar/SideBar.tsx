@@ -1,12 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const SideBar = ({ sidebar }) => {
+import "./SideBar.scss";
+
+const SideBar = ({ showSideBar }) => {
   return (
-    <nav className={sidebar ? "nav-menu active" : " nav-menu"}>
-      <NavLink to="/#">Shop</NavLink>
-      <NavLink to="/#">Contact</NavLink>
-      <NavLink to="/#">Log in</NavLink>
+    <nav className={showSideBar ? "nav-menu active" : "nav-menu"}>
+      <li>
+        <NavLink to="/shop">Shop</NavLink>
+        <NavLink to="/#">Contact</NavLink>
+        <NavLink to="/#">Log in</NavLink>
+      </li>
     </nav>
   );
 };

@@ -1,17 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { MdSearch } from "react-icons/md";
 import { BiCartAlt } from "react-icons/bi";
+import { HiMenuAlt2 } from "react-icons/hi";
 
 import Dropdown from "../Dropdown/Dropdown";
+import SideBar from "../SideBar/SideBar";
+import { CartContext } from "../../Hooks/CartContext";
 
 import "./NavBar.scss";
 
 const NavBar = () => {
   const wrapper = useRef(null);
+  const auth = useContext(CartContext);
+
+  console.log(auth);
+
+  const { itemCount } = useContext(CartContext);
   const [dropDown, setDropDown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showSideBar, setShowSidebar] = useState(false);
 
   const handleScroll = () => {
     const offset = window.pageYOffset;
@@ -32,16 +41,26 @@ const NavBar = () => {
   const handleClickOutside = (event) => {
     if (wrapper.current && !wrapper.current.contains(event.target)) {
       setDropDown(false);
+      setShowSidebar(false);
     }
   };
 
   return (
-    <div className={`navigation-container ${scrolled ? 'scrolled' : null}`} ref={wrapper}>
+    <div
+      className={`navigation-container ${scrolled ? "scrolled" : null}`}
+      ref={wrapper}
+    >
       <div className="logo">
-        <Link to="/">
+        <NavLink to="/">
           <h4>Smart Home</h4>
-        </Link>
+        </NavLink>
       </div>
+
+      <div className="menu-bar">
+        <HiMenuAlt2 onClick={() => setShowSidebar(!showSideBar)} />
+      </div>
+
+      {showSideBar ? <SideBar showSideBar={showSideBar} /> : null}
 
       <div className="search-box">
         <input placeholder="Start searching"></input>
@@ -49,25 +68,25 @@ const NavBar = () => {
       </div>
 
       <div className="option-box">
-        <Link to="/shop" className="option">
+        <NavLink to="/shop" className="option">
           Shop
-        </Link>
-        <Link to="/shop" className="option">
+        </NavLink>
+        <NavLink to="/contact" className="option">
           Contact
-        </Link>
-        <Link to="/login" className="option">
+        </NavLink>
+        <NavLink to="/login" className="option">
           Log in
-        </Link>
-        <div className='cart-icon-container'>
-          <span className='number-of-items'>
-            5
-          </span>
+        </NavLink>
+      </div>
+      <div className="cart-icon-container">
+        {itemCount !== 0 ? (
+          <span className="number-of-items">{itemCount}</span>
+        ) : null}
+
         <BiCartAlt
           className="cart-icon"
           onClick={() => setDropDown(!dropDown)}
         />
-        </div>
-       
       </div>
       {dropDown ? <Dropdown /> : null}
     </div>
