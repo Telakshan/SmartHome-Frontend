@@ -1,7 +1,5 @@
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import "./App.css";
-
 import RegisterAndLogin from "./Pages/RegisterAndLogin/RegisterAndLogin";
 import NavBar from "./Components/NavBar/NavBar";
 import Shop from "./Pages/Shop/Shop";
@@ -9,6 +7,8 @@ import Landing from "./Pages/Landing/Landing";
 import Contact from "./Pages/Contact/Contact";
 import ProductsContextProvider from "./Hooks/Products";
 import CartContextProvider from "./Hooks/CartContext";
+
+import "./App.css";
 
 function App() {
   return (

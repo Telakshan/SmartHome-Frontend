@@ -2,6 +2,8 @@ import ProductPreview from "../../Components/ProductPreview/ProductPreview";
 import { ProductsContext } from "../../Hooks/Products";
 import "./Shop.scss";
 import { useContext } from "react";
+import DUMMY from "../../DUMMY";
+import CollectionOfProducts from "../../Components/CollectionOfProducts/CollectionOfProducts";
 
 const Shop = () => {
   const { products } = useContext(ProductsContext);
@@ -9,15 +11,10 @@ const Shop = () => {
   return (
     <div className="shop-container">
       <div className="products">
-        {products.map(({ id, title, description, price, imageUrl }) => (
-          <ProductPreview
-            key={id}
-            title={title}
-            description={description}
-            price={price}
-            imageUrl={imageUrl}
-          />
+        {products.map(({id, categoryName, items }) => (
+          <CollectionOfProducts key={id} title={categoryName} items={items} />
         ))}
+
       </div>
     </div>
   );

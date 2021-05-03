@@ -10,7 +10,8 @@ const Contact = () => {
         <img src={image} className='micro'/>
       <h1>
         This website was made as a portfolio project mainly to demonstrate
-        fluency in <span>Microservices architecture, Spring boot and Reactjs</span>
+        fluency in <span>Microservices architecture, Spring boot and Reactjs. </span>
+        Check out my <a href='https://www.github.com/telakshan'>github</a> for more info 
       </h1>
     </div>
   );

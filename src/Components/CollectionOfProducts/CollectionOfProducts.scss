@@ -1,0 +1,32 @@
+.collection-container {
+  // display: flex;
+  //    flex-direction: column;
+  margin-bottom: 30px;
+  max-width: 1200px;
+
+  margin: 10vh auto auto;
+
+
+  .products {
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .collection-container {
+    .products {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .collection-container {
+    .products {
+      grid-template-columns: 1fr;
+    }
+  }
+}
