@@ -11,10 +11,7 @@ const CollectionOfProducts = ({ title, items }) => {
         {items.map((item) => (
           <ProductPreview
             key={item.id}
-            title={item.title}
-            imageUrl={item.imageUrl}
-            description={item.description}
-            price={item.price}
+            item={item}
           />
         ))}
       </div>

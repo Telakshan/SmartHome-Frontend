@@ -11,6 +11,18 @@
   width: 100%;
   background-color: #fff;
 
+  .close{
+    position: fixed;
+    color: #ff585d;
+    z-index: 3;
+    font-size: 32px;
+    margin-top: 20vh;
+    margin-left: 190px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
   .logo {
     flex: 0.3;
     font-size: 2rem;

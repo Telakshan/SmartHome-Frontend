@@ -1,8 +1,15 @@
 .log-in{
-    //margin: 20vh auto auto;
+ 
     width: 380px;
 
     form{
         margin-top: 10px;
+    }
+}
+
+@media (max-width: 852px) {
+
+    .log-in{
+        margin: 0 auto auto;
     }
 }

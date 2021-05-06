@@ -21,7 +21,7 @@ function App() {
             <Route exact path="/login" component={RegisterAndLogin} />
             <Route exact path="/shop" component={Shop} />
             <Route exact path="/contact" component={Contact} />
-            <Redirect to="/" />
+            {/* <Redirect to="/" /> */}
           </Switch>
         </CartContextProvider>
       </div>

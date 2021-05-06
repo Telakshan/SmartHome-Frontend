@@ -10,8 +10,8 @@ const Landing = () => {
   return (
     <div className="landing">
       <div className="categories">
-        {CATEGORIES_DUMMY.map(({id, name, imageUrl}) => (
-          <Categories key={id} name={name} imageUrl={imageUrl} />
+        {CATEGORIES_DUMMY.map(({id, name, imageUrl, linkUrl}) => (
+          <Categories key={id} name={name} imageUrl={imageUrl} linkUrl={linkUrl}/>
         ))}
       </div>
     </div>

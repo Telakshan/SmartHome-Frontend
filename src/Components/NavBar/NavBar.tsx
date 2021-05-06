@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { MdSearch } from "react-icons/md";
 import { BiCartAlt } from "react-icons/bi";
-import { HiMenuAlt2 } from "react-icons/hi";
+import { HiMenuAlt2,HiOutlineX } from "react-icons/hi";
 
 import Dropdown from "../Dropdown/Dropdown";
 import SideBar from "../SideBar/SideBar";
@@ -13,9 +13,6 @@ import "./NavBar.scss";
 
 const NavBar = () => {
   const wrapper = useRef(null);
-  const auth = useContext(CartContext);
-
-  console.log(auth);
 
   const { itemCount } = useContext(CartContext);
   const [dropDown, setDropDown] = useState(false);
@@ -60,10 +57,10 @@ const NavBar = () => {
         <HiMenuAlt2 onClick={() => setShowSidebar(!showSideBar)} />
       </div>
 
-      {showSideBar ? <SideBar showSideBar={showSideBar} /> : null}
+      {showSideBar ? <> <SideBar showSideBar={showSideBar} /> <HiOutlineX onClick={() => setShowSidebar(!showSideBar)} className='close'/> </> : null}
 
       <div className="search-box">
-        <input placeholder="Start searching"></input>
+        <input placeholder="What are you looking for?"></input>
         <MdSearch className="search-icon" />
       </div>
 

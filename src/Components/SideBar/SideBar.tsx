@@ -7,9 +7,10 @@ const SideBar = ({ showSideBar }) => {
   return (
     <nav className={showSideBar ? "nav-menu active" : "nav-menu"}>
       <li>
+        <NavLink to='/'>Home</NavLink>
         <NavLink to="/shop">Shop</NavLink>
-        <NavLink to="/#">Contact</NavLink>
-        <NavLink to="/#">Log in</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/login">Log in</NavLink>
       </li>
     </nav>
   );

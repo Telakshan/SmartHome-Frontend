@@ -1,8 +1,11 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useContext } from "react";
+import { ProductsContext } from "../Hooks/Products";
 import { Reducer } from "./Reducer";
 import { sumItems } from "./Store";
 
 export const CartContext = createContext();
+
+let productIdArray = [];
 
 const storage = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart"))
@@ -26,6 +29,7 @@ const CartContextProvider = ({ children }) => {
 
   const addProduct = (payload) => {
     dispatch({ type: "ADD_ITEM", payload });
+    console.log(payload);
   };
 
   const removeProduct = (payload) => {
@@ -50,11 +54,21 @@ const CartContextProvider = ({ children }) => {
     ...state,
   };
 
+  const {products} = useContext(ProductsContext);
+
+  products.map(({items}) => (
+        items.map(({id}) => (
+            productIdArray.push(id)
+        ))
+    ))
+
   return (
     <CartContext.Provider value={ContextValues}>
       {children}
     </CartContext.Provider>
   );
 };
+
+export {productIdArray};
 
 export default CartContextProvider;

@@ -41,7 +41,7 @@ const Register = () => {
           label="password"
           onChange={handleChange}
         />
-        <Button>Register</Button>
+        <Button inverted={false}>Register</Button>
       </form>
     </div>
   );

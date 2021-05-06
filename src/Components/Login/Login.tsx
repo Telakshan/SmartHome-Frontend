@@ -33,7 +33,7 @@ const Login = () => {
           label="password"
           onChange={handleChange}
         />
-        <Button>
+        <Button inverted={false}>
           Log in
         </Button>
       </form>
