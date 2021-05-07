@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../Hooks/CartContext";
 import { ProductsContext } from "../../Hooks/Products";
 
@@ -6,14 +6,14 @@ import Button from "../Button/Button";
 
 import "./ProductPreview.scss";
 
-const ProductPreview = ({item}) => {
+const ProductPreview = ({ item }) => {
+  const { addProduct, cartItems, increase } = useContext(CartContext);
+  const { products } = useContext(ProductsContext);
 
+  const itemIsInCart = (product) => {
+    return !!cartItems.find((item) => item.id === product.id);
+  };
 
-  const {addProduct, cartItems, increase} = useContext(CartContext);
-  const {products} = useContext(ProductsContext);
-
-
-  
   return (
     <div className="product-item">
       <div
@@ -22,11 +22,27 @@ const ProductPreview = ({item}) => {
       ></div>
       <p className="title">{item.title}</p>
       <p className="description">{item.description}</p>
-      <p className="price">{item.price}</p>
+      <p className="price">${item.price}</p>
 
-      {/* <button onClick={() => addProduct(item)}>Add to cart</button> */}
+      {itemIsInCart(item) && (
+        <Button
+          inverted={true}
+          onClick={() => {
+            increase(item);
+          }}
+        >
+          Add More
+        </Button>
+      )}
 
-      <Button inverted={false} onClick={() => {addProduct(item); console.log(item)}}>Add Item to Cart</Button>
+     { !itemIsInCart(item) && <Button
+        inverted={false}
+        onClick={() => {
+          addProduct(item);
+        }}
+      >
+        Add Item to Cart
+      </Button>}
     </div>
   );
 };

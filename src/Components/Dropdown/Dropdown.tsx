@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../Hooks/CartContext";
-import CartItem from '../CartItem/CartItem';
+import CartItem from "../CartItem/CartItem";
+import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 
 import "./Dropdown.scss";
@@ -13,12 +14,19 @@ const Dropdown: React.FC<DropdownProps> = () => {
     <div className="dropdown">
       <div className="cart-items">
         {other.cartItems.map((item) => (
-          <CartItem key={item.id} name={item.title} imageUrl={item.imageUrl} price={item.price} quantity={item.quantity}/>
+          <CartItem
+            key={item.id}
+            name={item.title}
+            imageUrl={item.imageUrl}
+            price={item.price}
+            quantity={item.quantity}
+          />
         ))}
-
       </div>
       <p>Total: ${other.total}</p>
-      <Button inverted={false}>Check out</Button>
+      <Link to="/checkout" className="checkout-button">
+        <Button inverted={false}>Check out</Button>
+      </Link>
     </div>
   );
 };

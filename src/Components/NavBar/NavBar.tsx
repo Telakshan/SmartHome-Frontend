@@ -69,7 +69,7 @@ const NavBar = () => {
           Shop
         </NavLink>
         <NavLink to="/contact" className="option">
-          Contact
+          About
         </NavLink>
         <NavLink to="/login" className="option">
           Log in
