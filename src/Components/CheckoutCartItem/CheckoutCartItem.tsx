@@ -4,10 +4,14 @@ import { CartContext } from "../../Hooks/CartContext";
 
 import "./CheckoutCartItem.scss";
 
-const CheckoutCartItem = ({ product }) => {
+interface CheckoutCartItemProps {
+  product: any;
+}
+
+const CheckoutCartItem: React.FC<CheckoutCartItemProps> = ({ product }) => {
   const { removeProduct } = useContext(CartContext);
 
-  const {imageUrl, title, quantity, price} = product;
+  const { imageUrl, price, title, quantity } = product;
 
   return (
     <div className="checkout-item">

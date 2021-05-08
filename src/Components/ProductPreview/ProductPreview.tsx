@@ -4,7 +4,11 @@ import Button from "../Button/Button";
 
 import "./ProductPreview.scss";
 
-const ProductPreview = ({ item }) => {
+interface ProductPreviewProps{
+  item: any
+}
+
+const ProductPreview: React.FC<ProductPreviewProps> = ({ item }) => {
   const { addProduct, cartItems, increase } = useContext(CartContext);
 
   const itemIsInCart = (product) => {

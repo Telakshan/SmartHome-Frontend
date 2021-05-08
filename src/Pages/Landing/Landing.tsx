@@ -3,7 +3,7 @@ import "./Landing.scss";
 
 import CATEGORIES_DUMMY from "./Assets/CATEGORIES_DUMMY";
 
-const Landing = () => {
+const Landing: React.FC = () => {
 
   return (
     <div className="landing">

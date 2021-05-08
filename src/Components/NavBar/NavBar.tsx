@@ -11,7 +11,7 @@ import { CartContext } from "../../Hooks/CartContext";
 
 import "./NavBar.scss";
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   const wrapper = useRef(null);
 
   const { itemCount } = useContext(CartContext);

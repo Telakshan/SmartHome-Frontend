@@ -9,11 +9,25 @@
         
         margin: 0 auto auto;
     }
+
+    h1{
+        line-height: 50px;
+    }
     span{
         color: rgb(0, 174, 255);
     }
 
     a{
         color: blue;
+    }
+}
+
+@media(max-width: 852px){
+    .contact-container{
+
+        .spring-boot{
+            width: auto;
+            height: 230px; 
+        }
     }
 }

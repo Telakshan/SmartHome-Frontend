@@ -5,12 +5,12 @@ import axios from "axios";
 
 import "./CategoryPage.scss";
 
-const CategoryPage = () => {
+const CategoryPage: React.FC = () => {
   const { categoryId } = useParams();
   const [categoryProducts, setCategoryProducts] = useState([]);
 
-  let id;
-  let categoryName;
+  let id: number;
+  let categoryName: string;
 
   switch (categoryId) {
     case "security":

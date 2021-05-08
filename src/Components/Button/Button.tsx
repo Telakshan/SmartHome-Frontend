@@ -1,9 +1,14 @@
-import React from "react";
-
 import "./Button.scss";
 
 
-const Button = ({ children, inverted, ...otherProps }) => {
+interface ButtonProps{
+  children: any;
+  inverted: boolean;
+  otherProps?: [x: string];
+  onClick: any;
+}
+
+const Button: React.FC<ButtonProps> = ({ children, inverted, ...otherProps }) => {
   return (
     <button
       className={`${inverted ? "inverted" : ""} custom-button`}

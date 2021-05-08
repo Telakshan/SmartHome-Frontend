@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 
 import "./Register.scss";
 
-const Register = () => {
+const Register: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,6 +16,10 @@ const Register = () => {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+
+  const submitRegister = () => {
+    return 'Log in button pressed!'
+  }
 
   return (
     <div className="register">
@@ -41,7 +45,7 @@ const Register = () => {
           label="password"
           onChange={handleChange}
         />
-        <Button inverted={false}>Register</Button>
+        <Button inverted={false} onClick={() => submitRegister()}>Register</Button>
       </form>
     </div>
   );

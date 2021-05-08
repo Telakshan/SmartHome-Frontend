@@ -4,8 +4,13 @@ import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
 import "./Checkout.scss";
 import CheckoutCartItem from "../../Components/CheckoutCartItem/CheckoutCartItem";
+import { History } from "history";
 
-const Checkout = () => {
+interface CheckoutProps {
+  history: History;
+}
+
+const Checkout: React.FC<CheckoutProps> = ({ history }) => {
   const { cartItems, total, clearCart } = useContext(CartContext);
 
   return (
@@ -29,7 +34,9 @@ const Checkout = () => {
       {cartItems.length === 0 ? (
         <h3>No items in cart</h3>
       ) : (
-        cartItems.map((product) => <CheckoutCartItem key={product.id} product={product} />)
+        cartItems.map((product) => (
+          <CheckoutCartItem key={product.id} product={product} />
+        ))
       )}
       <div className="total">
         <h3>Total: ${total} </h3>
@@ -40,12 +47,12 @@ const Checkout = () => {
           <p className="clear-cart" onClick={() => clearCart()}>
             Clear Cart
           </p>
-          <Button inverted={true}>Proceed to payment</Button>
+          <Button inverted={true} onClick={() => history.push('/')}>Proceed to payment</Button>
         </>
       ) : (
-        <Link to="/shop">
-          <Button inverted={false}>Go to shop</Button>
-        </Link>
+        <Button inverted={false} onClick={() => history.push("/shop")}>
+          Go to shop
+        </Button>
       )}
     </div>
   );

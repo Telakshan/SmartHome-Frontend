@@ -4,7 +4,7 @@ import Register from "../../Components/Register/Register";
 
 import "./RegisterAndLogin.scss";
 
-const RegisterAndLogin = () => {
+const RegisterAndLogin: React.FC = () => {
   return (
     <div className='register-login'>
       <Login />

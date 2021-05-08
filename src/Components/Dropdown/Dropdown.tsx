@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../Hooks/CartContext";
 import CartItem from "../CartItem/CartItem";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Button from "../Button/Button";
+import {History} from 'history';
 
 import "./Dropdown.scss";
 
-interface DropdownProps {}
+interface DropdownProps {
+  history: History
+}
 
-const Dropdown: React.FC<DropdownProps> = () => {
+const Dropdown: React.FC<DropdownProps> = ({history}) => {
   const { itemCount, ...other } = useContext(CartContext);
   return (
     <div className="dropdown">
@@ -24,11 +27,13 @@ const Dropdown: React.FC<DropdownProps> = () => {
         ))}
       </div>
       <p>Total: ${other.total}</p>
-      <Link to="/checkout" className="checkout-button">
-        <Button inverted={false}>Check out</Button>
-      </Link>
+      {/* <Link to="/checkout" className="checkout-button"> */}
+
+        <Button inverted={false}
+        onClick={() => history.push('/checkout')}
+        >Check out</Button>
     </div>
   );
 };
 
-export default Dropdown;
+export default withRouter(Dropdown);

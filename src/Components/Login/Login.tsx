@@ -4,7 +4,7 @@ import Input from "../Input/Input";
 
 import "./Login.scss";
 
-const Login = () => {
+const Login: React.FC = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -15,6 +15,10 @@ const Login = () => {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+
+  const submitLogin = () => {
+    return 'Log in button pressed!'
+  }
 
   return (
     <div className="log-in">
@@ -33,7 +37,7 @@ const Login = () => {
           label="password"
           onChange={handleChange}
         />
-        <Button inverted={false}>
+        <Button inverted={false} onClick={() => submitLogin()}>
           Log in
         </Button>
       </form>

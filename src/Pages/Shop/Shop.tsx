@@ -4,7 +4,7 @@ import CollectionOfProducts from "../../Components/CollectionOfProducts/Collecti
 
 import "./Shop.scss";
 
-const Shop = () => {
+const Shop: React.FC = () => {
   const { items } = useContext(ProductsContext);
 
   return (
