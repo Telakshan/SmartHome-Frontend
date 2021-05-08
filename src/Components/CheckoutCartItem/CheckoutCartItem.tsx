@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
-import { AiFillPlusCircle } from "react-icons/ai";
+import { useContext } from "react";
 import { FaTimesCircle } from "react-icons/fa";
 import { CartContext } from "../../Hooks/CartContext";
 
 import "./CheckoutCartItem.scss";
 
 const CheckoutCartItem = ({ product }) => {
-  const { increase, decrease, removeProduct } = useContext(CartContext);
+  const { removeProduct } = useContext(CartContext);
 
   const {imageUrl, title, quantity, price} = product;
 

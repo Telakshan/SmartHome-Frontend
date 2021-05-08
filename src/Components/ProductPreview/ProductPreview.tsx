@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import { CartContext } from "../../Hooks/CartContext";
-import { ProductsContext } from "../../Hooks/Products";
-
 import Button from "../Button/Button";
 
 import "./ProductPreview.scss";
 
 const ProductPreview = ({ item }) => {
   const { addProduct, cartItems, increase } = useContext(CartContext);
-  const { products } = useContext(ProductsContext);
 
   const itemIsInCart = (product) => {
     return !!cartItems.find((item) => item.id === product.id);
@@ -20,7 +17,7 @@ const ProductPreview = ({ item }) => {
         className="product-item-image"
         style={{ backgroundImage: `url(${item.imageUrl})` }}
       ></div>
-      <p className="title">{item.title}</p>
+      <p className="title">{item.name}</p>
       <p className="description">{item.description}</p>
       <p className="price">${item.price}</p>
 

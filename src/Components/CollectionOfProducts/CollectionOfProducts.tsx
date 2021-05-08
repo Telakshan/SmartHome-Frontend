@@ -4,6 +4,8 @@ import ProductPreview from "../ProductPreview/ProductPreview";
 import "./CollectionOfProducts.scss";
 
 const CollectionOfProducts = ({ title, items }) => {
+
+  
   return (
     <div className="collection-container">
       <h1 className='title'>{title}</h1>

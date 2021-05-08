@@ -8,7 +8,6 @@ import CheckoutCartItem from "../../Components/CheckoutCartItem/CheckoutCartItem
 const Checkout = () => {
   const { cartItems, total, clearCart } = useContext(CartContext);
 
-  console.log(cartItems);
   return (
     <div className="checkout-container">
       <h1>Checkout</h1>
@@ -30,7 +29,7 @@ const Checkout = () => {
       {cartItems.length === 0 ? (
         <h3>No items in cart</h3>
       ) : (
-        cartItems.map((product) => <CheckoutCartItem product={product} />)
+        cartItems.map((product) => <CheckoutCartItem key={product.id} product={product} />)
       )}
       <div className="total">
         <h3>Total: ${total} </h3>

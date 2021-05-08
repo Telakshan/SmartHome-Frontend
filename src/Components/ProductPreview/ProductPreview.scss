@@ -8,13 +8,14 @@
 
 
   .product-item-image{
-    height: 250px;
-    background-size: cover;
-    background-position: center;
+     height: 250px;
+     background-size: contain;
+     background-repeat: no-repeat;
+     background-position: center;
 
     &:hover{
         cursor: pointer;
-        transform: scale(1.1);
+        transform: scale(0.9);
         transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
   }

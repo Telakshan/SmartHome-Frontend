@@ -6,6 +6,7 @@ import Shop from "./Pages/Shop/Shop";
 import Landing from "./Pages/Landing/Landing";
 import Contact from "./Pages/Contact/Contact";
 import Checkout from './Pages/Checkout/Checkout';
+import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import ProductsContextProvider from "./Hooks/Products";
 import CartContextProvider from "./Hooks/CartContext";
 
@@ -23,7 +24,8 @@ function App() {
             <Route exact path="/shop" component={Shop} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path='/checkout' component={Checkout}/>
-            {/* <Redirect to="/" /> */}
+            <Route exact path='/shop/:categoryId' children={<CategoryPage />}/>
+            <Redirect to="/" />
           </Switch>
         </CartContextProvider>
       </div>

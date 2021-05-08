@@ -1,11 +1,8 @@
-import React, { createContext, useReducer, useContext } from "react";
-import { ProductsContext } from "../Hooks/Products";
+import { createContext, useReducer } from "react";
 import { Reducer } from "./Reducer";
 import { sumItems } from "./Store";
 
 export const CartContext = createContext();
-
-let productIdArray = [];
 
 const storage = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart"))
@@ -54,14 +51,6 @@ const CartContextProvider = ({ children }) => {
     ...state,
   };
 
-  const {products} = useContext(ProductsContext);
-
-  products.map(({items}) => (
-        items.map(({id}) => (
-            productIdArray.push(id)
-        ))
-    ))
-
   return (
     <CartContext.Provider value={ContextValues}>
       {children}
@@ -69,6 +58,5 @@ const CartContextProvider = ({ children }) => {
   );
 };
 
-export {productIdArray};
 
 export default CartContextProvider;

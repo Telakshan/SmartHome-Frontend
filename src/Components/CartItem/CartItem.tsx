@@ -5,7 +5,6 @@ import './CartItem.scss';
 const CartItem = ({ imageUrl, price, name, quantity }) => {
   return (
     <div className="cart-item">
-      {/* <img src={imageUrl} alt="item" /> */}
       <div className='background-image' style={{backgroundImage: `url(${imageUrl})`}}/>
 
       <div className="item-details">
