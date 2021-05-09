@@ -11,6 +11,7 @@ import ProductsContextProvider from "./Hooks/Products";
 import CartContextProvider from "./Hooks/CartContext";
 
 import "./App.css";
+import SearchPage from "./Pages/SearchPage/SearchPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route exact path="/contact" component={Contact} />
             <Route exact path='/checkout' component={Checkout}/>
             <Route exact path='/shop/:categoryId' children={<CategoryPage />}/>
+            <Route exact path='/shop/search/:name' children={<SearchPage/>}/>
             <Redirect to="/" />
           </Switch>
         </CartContextProvider>

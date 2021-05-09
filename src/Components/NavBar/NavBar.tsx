@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 
 import { NavLink } from "react-router-dom";
-import { MdSearch } from "react-icons/md";
 import { BiCartAlt } from "react-icons/bi";
-import { HiMenuAlt2,HiOutlineX } from "react-icons/hi";
+import { HiMenuAlt2, HiOutlineX } from "react-icons/hi";
 
 import Dropdown from "../Dropdown/Dropdown";
 import SideBar from "../SideBar/SideBar";
 import { CartContext } from "../../Hooks/CartContext";
 
 import "./NavBar.scss";
+import Search from "../Search/Search";
 
 const NavBar: React.FC = () => {
   const wrapper = useRef(null);
@@ -57,11 +57,19 @@ const NavBar: React.FC = () => {
         <HiMenuAlt2 onClick={() => setShowSidebar(!showSideBar)} />
       </div>
 
-      {showSideBar ? <> <SideBar showSideBar={showSideBar} /> <HiOutlineX onClick={() => setShowSidebar(!showSideBar)} className='close'/> </> : null}
+      {showSideBar ? (
+        <>
+          
+          <SideBar showSideBar={showSideBar} />
+          <HiOutlineX
+            onClick={() => setShowSidebar(!showSideBar)}
+            className="close"
+          />
+        </>
+      ) : null}
 
-      <div className="search-box">
-        <input placeholder="What are you looking for?"></input>
-        <MdSearch className="search-icon" />
+      <div className="search-container">
+        <Search/>
       </div>
 
       <div className="option-box">

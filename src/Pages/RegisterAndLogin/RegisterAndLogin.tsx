@@ -7,6 +7,7 @@ import "./RegisterAndLogin.scss";
 const RegisterAndLogin: React.FC = () => {
   return (
     <div className='register-login'>
+
       <Login />
       <Register />
     </div>

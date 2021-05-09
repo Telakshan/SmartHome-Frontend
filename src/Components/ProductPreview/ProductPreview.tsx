@@ -1,11 +1,11 @@
-import  { useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../Hooks/CartContext";
 import Button from "../Button/Button";
 
 import "./ProductPreview.scss";
 
-interface ProductPreviewProps{
-  item: any
+interface ProductPreviewProps {
+  item: any;
 }
 
 const ProductPreview: React.FC<ProductPreviewProps> = ({ item }) => {
@@ -36,14 +36,16 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ item }) => {
         </Button>
       )}
 
-     { !itemIsInCart(item) && <Button
-        inverted={false}
-        onClick={() => {
-          addProduct(item);
-        }}
-      >
-        Add Item to Cart
-      </Button>}
+      {!itemIsInCart(item) && (
+        <Button
+          inverted={false}
+          onClick={() => {
+            addProduct(item);
+          }}
+        >
+          Add Item to Cart
+        </Button>
+      )}
     </div>
   );
 };
