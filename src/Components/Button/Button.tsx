@@ -1,6 +1,5 @@
 import "./Button.scss";
 
-
 interface ButtonProps{
   children: any;
   inverted: boolean;

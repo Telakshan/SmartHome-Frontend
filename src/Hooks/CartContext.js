@@ -26,7 +26,6 @@ const CartContextProvider = ({ children }) => {
 
   const addProduct = (payload) => {
     dispatch({ type: "ADD_ITEM", payload });
-    console.log(payload);
   };
 
   const removeProduct = (payload) => {

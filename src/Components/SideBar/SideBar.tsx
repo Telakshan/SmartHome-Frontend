@@ -3,7 +3,11 @@ import { NavLink } from "react-router-dom";
 
 import "./SideBar.scss";
 
-const SideBar = ({ showSideBar }) => {
+interface SideBarProps{
+  showSideBar: boolean
+}
+
+const SideBar: React.FC<SideBarProps> = ({ showSideBar }) => {
   return (
     <nav className={showSideBar ? "nav-menu active" : "nav-menu"}>
       <li>

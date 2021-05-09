@@ -9,7 +9,7 @@ const Shop: React.FC = () => {
 
   return (
     <div className="shop-container">
-      <CollectionOfProducts title={"All products"} items={items} />
+      <CollectionOfProducts title={"All products"} items={items.sort(() => Math.random() -0.5)} />
     </div>
   );
 };

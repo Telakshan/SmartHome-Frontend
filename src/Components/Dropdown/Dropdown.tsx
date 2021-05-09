@@ -27,7 +27,6 @@ const Dropdown: React.FC<DropdownProps> = ({history}) => {
         ))}
       </div>
       <p>Total: ${other.total}</p>
-      {/* <Link to="/checkout" className="checkout-button"> */}
 
         <Button inverted={false}
         onClick={() => history.push('/checkout')}

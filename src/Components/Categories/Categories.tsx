@@ -1,4 +1,4 @@
-import { withRouter, RouteComponentProps } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { History } from "history";
 
 import "./Categories.scss";

@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../Hooks/CartContext";
 import Button from "../../Components/Button/Button";
-import { Link } from "react-router-dom";
 import "./Checkout.scss";
 import CheckoutCartItem from "../../Components/CheckoutCartItem/CheckoutCartItem";
 import { History } from "history";

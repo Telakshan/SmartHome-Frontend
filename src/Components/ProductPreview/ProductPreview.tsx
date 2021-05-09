@@ -11,7 +11,7 @@ interface ProductPreviewProps{
 const ProductPreview: React.FC<ProductPreviewProps> = ({ item }) => {
   const { addProduct, cartItems, increase } = useContext(CartContext);
 
-  const itemIsInCart = (product) => {
+  const itemIsInCart = (product: any): boolean => {
     return !!cartItems.find((item) => item.id === product.id);
   };
 
