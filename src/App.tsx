@@ -13,7 +13,7 @@ import CartContextProvider from "./Hooks/CartContext";
 import "./App.css";
 import SearchPage from "./Pages/SearchPage/SearchPage";
 
-function App() {
+function App(): JSX.Element {
   return (
     <ProductsContextProvider>
       <div className="App">

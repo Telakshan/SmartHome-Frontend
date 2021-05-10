@@ -1,10 +1,10 @@
 import "./Button.scss";
 
 interface ButtonProps{
-  children: any;
+  children: string;
   inverted: boolean;
   otherProps?: [x: string];
-  onClick: any;
+  onClick:  () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({ children, inverted, ...otherProps }) => {

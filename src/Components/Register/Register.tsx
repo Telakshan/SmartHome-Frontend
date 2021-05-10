@@ -13,7 +13,7 @@ const Register: React.FC = () => {
 
   const { name, email, password } = formData;
 
-  const handleChange = (event) => {
+  const handleChange: (event: any) => void = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
