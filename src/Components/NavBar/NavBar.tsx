@@ -59,7 +59,6 @@ const NavBar: React.FC = () => {
 
       {showSideBar ? (
         <>
-          
           <SideBar showSideBar={showSideBar} />
           <HiOutlineX
             onClick={() => setShowSidebar(!showSideBar)}
@@ -69,7 +68,7 @@ const NavBar: React.FC = () => {
       ) : null}
 
       <div className="search-container">
-        <Search/>
+        <Search />
       </div>
 
       <div className="option-box">
