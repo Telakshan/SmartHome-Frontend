@@ -14,7 +14,7 @@ const Checkout: React.FC<CheckoutProps> = ({ history }) => {
 
   return (
     <div className="checkout-container">
-      <h1>Checkout</h1>
+      <h1>Review Your Order</h1>
       <div className="checkout-header">
         <div className="header-block">
           <span>Product</span>
@@ -46,7 +46,7 @@ const Checkout: React.FC<CheckoutProps> = ({ history }) => {
           <p className="clear-cart" onClick={() => clearCart()}>
             Clear Cart
           </p>
-          <Button inverted={true} onClick={() => history.push('/')}>Proceed to payment</Button>
+          <Button inverted={true} onClick={() => history.push('/payment')}>Proceed to payment</Button>
         </>
       ) : (
         <Button inverted={false} onClick={() => history.push("/shop")}>

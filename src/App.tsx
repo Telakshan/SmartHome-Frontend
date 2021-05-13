@@ -12,6 +12,7 @@ import CartContextProvider from "./Hooks/CartContext";
 
 import "./App.css";
 import SearchPage from "./Pages/SearchPage/SearchPage";
+import PaymentPage from "./Pages/PaymentPage/PaymentPage";
 
 function App(): JSX.Element {
   return (
@@ -25,6 +26,7 @@ function App(): JSX.Element {
             <Route exact path="/shop" component={Shop} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path='/checkout' component={Checkout}/>
+            <Route exact path='/payment' component={PaymentPage} />
             <Route exact path='/shop/:categoryId' children={<CategoryPage />}/>
             <Route exact path='/shop/search/:name' children={<SearchPage/>}/>
             <Redirect to="/" />
