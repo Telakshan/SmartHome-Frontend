@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, ChangeEvent } from "react";
 
 import Input from "../Input/Input";
 import Button from "../Button/Button";
@@ -22,8 +22,9 @@ const AddressAndPayment: React.FC = () => {
 
   const { street, city, state, zipcode, cardNumber, securityCode } = formData;
 
-  const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => {
+    const {name, value} = event.target;
+    setFormData({ ...formData, [name]: value });
   };
   return (
     <div className="address">

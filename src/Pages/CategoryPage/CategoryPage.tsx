@@ -7,8 +7,8 @@ import axios from "axios";
 import "./CategoryPage.scss";
 
 const CategoryPage: React.FC = () => {
-  const { categoryId } = useParams();
-  const [isLoading, setIsLoading] = useState(false);
+  const { categoryId } = useParams<{categoryId?: string}>();
+  const [isLoading, setIsLoading] = useState(true);
   const [categoryProducts, setCategoryProducts] = useState([]);
 
   let id: number;
@@ -41,7 +41,6 @@ const CategoryPage: React.FC = () => {
   }
 
   useEffect(() => {
-    setIsLoading(true);
     axios
       .get(
         `http://localhost:8080/api/products/search/findByCategoryId?id=${id}`

@@ -12,7 +12,7 @@ import "./NavBar.scss";
 import Search from "../Search/Search";
 
 const NavBar: React.FC = () => {
-  const wrapper = useRef(null);
+  const wrapper = useRef<HTMLDivElement>(null);
 
   const { itemCount } = useContext(CartContext);
   const [dropDown, setDropDown] = useState(false);
@@ -35,11 +35,13 @@ const NavBar: React.FC = () => {
     };
   }, []);
 
-  const handleClickOutside = (event) => {
-    if (wrapper.current && !wrapper.current.contains(event.target)) {
-      setDropDown(false);
-      setShowSidebar(false);
-    }
+  const handleClickOutside = (event: MouseEvent) => {
+   // if (wrapper !== null) {
+      if (!(wrapper.current! as any).contains(event.target)) {
+        setDropDown(false);
+        setShowSidebar(false);
+      }
+  //  }
   };
 
   return (

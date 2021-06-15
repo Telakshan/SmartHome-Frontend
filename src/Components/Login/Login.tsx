@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 
@@ -12,7 +12,7 @@ const Login: React.FC = () => {
 
   const { email, password } = formData;
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 

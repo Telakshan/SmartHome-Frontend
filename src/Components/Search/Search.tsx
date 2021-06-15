@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { MdSearch } from "react-icons/md";
 import { withRouter } from "react-router-dom";
 import { History } from "history";
@@ -12,8 +12,8 @@ interface SearchProps {
 const Search: React.FC<SearchProps> = ({ history }) => {
   const [input, setInput] = useState("");
 
-  const onSubmit = (event) => {
-    if (event.which === 13) {
+  const onSubmit = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
       history.push(`/shop/search/${input}`);
     }
   };

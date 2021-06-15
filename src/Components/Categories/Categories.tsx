@@ -1,4 +1,4 @@
-import { withRouter } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import { History } from "history";
 
 import "./Categories.scss";
@@ -10,7 +10,7 @@ interface CategoriesProps {
   history: History;
 }
 
-const Categories: React.FC<CategoriesProps> = ({
+const Categories: React.FC<CategoriesProps & RouteComponentProps> = ({
   name,
   imageUrl,
   linkUrl,

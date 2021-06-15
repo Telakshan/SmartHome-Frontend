@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import {History} from 'history';
 
 import "./Dropdown.scss";
+import { CartItemType } from "../../Models/CartItemType";
 
 interface DropdownProps {
   history: History
@@ -16,7 +17,7 @@ const Dropdown: React.FC<DropdownProps> = ({history}) => {
   return (
     <div className="dropdown">
       <div className="cart-items">
-        {other.cartItems.map((item) => (
+        {other.cartItems.map((item: CartItemType) => (
           <CartItem
             key={item.id}
             name={item.title}

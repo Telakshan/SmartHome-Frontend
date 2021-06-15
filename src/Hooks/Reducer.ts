@@ -1,11 +1,12 @@
+import { CartItemType } from "../Models/CartItemType";
 import { sumItems } from "./Store";
 
 
 
-export const Reducer = (state, action) => {
+export const Reducer = (state: any, action: any) => {
   switch (action.type) {
     case "ADD_ITEM":
-      if (!state.cartItems.find((item) => item.id === action.payload.id)) {
+      if (!state.cartItems.find((item: CartItemType) => item.id === action.payload.id)) {
         state.cartItems.push({
           ...action.payload,
           quantity: 1,
@@ -22,15 +23,15 @@ export const Reducer = (state, action) => {
       return {
         ...state,
         ...sumItems(
-          state.cartItems.filter((item) => item.id !== action.payload.id)
+          state.cartItems.filter((item: CartItemType) => item.id !== action.payload.id)
         ),
         cartItems: [
-          ...state.cartItems.filter((item) => item.id !== action.payload.id),
+          ...state.cartItems.filter((item: CartItemType) => item.id !== action.payload.id),
         ],
       };
     case "INCREASE":
       state.cartItems[
-        state.cartItems.findIndex((item) => item.id === action.payload.id)
+        state.cartItems.findIndex((item: CartItemType) => item.id === action.payload.id)
       ].quantity++;
       return {
         ...state,
@@ -39,7 +40,7 @@ export const Reducer = (state, action) => {
       };
     case "DECREASE":
       state.cartItems[
-        state.cartItems.findIndex((item) => item.id === action.payload.id)
+        state.cartItems.findIndex((item: CartItemType) => item.id === action.payload.id)
       ].quantity--;
       return {
         ...state,

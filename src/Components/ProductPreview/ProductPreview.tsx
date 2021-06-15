@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../Hooks/CartContext";
+import { CartItemType } from "../../Models/CartItemType";
 import Button from "../Button/Button";
 
 import "./ProductPreview.scss";
@@ -12,7 +13,7 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ item }) => {
   const { addProduct, cartItems, increase } = useContext(CartContext);
 
   const itemIsInCart = (product: any): boolean => {
-    return !!cartItems.find((item) => item.id === product.id);
+    return !!cartItems.find((item: CartItemType) => item.id === product.id);
   };
 
   return (

@@ -13,12 +13,11 @@ interface SearchPageProps {
 }
 
 const SearchPage: React.FC<SearchPageProps> = ({ history }) => {
-  const { name } = useParams();
-  const [isLoading, setIsLoading] = useState(false);
+  const { name } = useParams<{name?: string}>();
+  const [isLoading, setIsLoading] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    setIsLoading(true);
     axios
       .get(
         `http://localhost:8080/api/products/search/findByNameContainingIgnoreCase?name=${name}`
