@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
-import CollectionOfProducts from "../../Components/CollectionOfProducts/CollectionOfProducts";
-import { useParams } from "react-router-dom";
-import Loading from "../../Components/Loading/Loading";
 import axios from "axios";
-
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import CollectionOfProducts from "../../Components/CollectionOfProducts/CollectionOfProducts";
+import Loading from "../../Components/Loading/Loading";
+import { Product } from "../../Models/Product";
 import "./CategoryPage.scss";
 
+
 const CategoryPage: React.FC = () => {
-  const { categoryId } = useParams<{categoryId?: string}>();
+  const { categoryId } = useParams<{ categoryId?: string }>();
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryProducts, setCategoryProducts] = useState([]);
+  const [categoryProducts, setCategoryProducts] = useState<Product[]>([]);
 
   let id: number;
   let categoryName: string;

@@ -1,6 +1,7 @@
-import { withRouter, RouteComponentProps } from "react-router-dom";
 import { History } from "history";
-
+import { useContext, useEffect } from "react";
+import { RouteComponentProps, withRouter } from "react-router-dom";
+import { ApplicationContext } from "../../Hooks/ApplicationContext";
 import "./Categories.scss";
 
 interface CategoriesProps {
@@ -16,17 +17,30 @@ const Categories: React.FC<CategoriesProps & RouteComponentProps> = ({
   linkUrl,
   history,
 }) => {
+  const { isShowing } = useContext(ApplicationContext);
+
+  useEffect(() => {}, [isShowing]);
+
+  const goToLink = () => {
+    if (!isShowing) {
+      history.push(`shop/${linkUrl}`);
+    }
+  };
+
   return (
-    <div
-      className="category-item"
-      style={{ backgroundImage: `url(${imageUrl})` }}
-      onClick={() => history.push(`shop/${linkUrl}`)}
-    >
-      <div className="category-item-inner">
-        <div>{name}</div>
+    <>
+      <div
+        className={`${isShowing ? "category-item-inactive" : "category-item"}`}
+        style={{ backgroundImage: `url(${imageUrl})` }}
+        onClick={() => goToLink()}
+      >
+        <div className="category-item-inner">
+          <div>{name}</div>
+        </div>
       </div>
-    </div>
+    </>
   );
+  //}
 };
 
 export default withRouter(Categories);

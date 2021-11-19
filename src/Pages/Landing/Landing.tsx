@@ -1,10 +1,8 @@
 import Categories from "../../Components/Categories/Categories";
+import CATEGORIES_DUMMY from "./Assets/CATEGORIES_DUMMY";
 import "./Landing.scss";
 
-import CATEGORIES_DUMMY from "./Assets/CATEGORIES_DUMMY";
-
 const Landing: React.FC = () => {
-
   return (
     <div className="landing">
       <div className="categories">

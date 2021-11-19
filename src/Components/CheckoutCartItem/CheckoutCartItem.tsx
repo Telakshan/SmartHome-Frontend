@@ -23,7 +23,7 @@ const CheckoutCartItem: React.FC<CheckoutCartItemProps> = ({ product }) => {
 
       <span className="quantity">
 
-        {quantity > 1 ? <AiFillMinusCircle className="minus" onClick={() => decrease(product)} /> : <AiFillMinusCircle className='minus inactive' />}
+        {quantity > 1 ? <AiFillMinusCircle className="minus" onClick={() => decrease(product)} /> : <AiFillMinusCircle className='inactive' />}
         
         {quantity}
         <AiFillPlusCircle className="plus" onClick={() => increase(product)}/>

@@ -3,7 +3,7 @@ import React, { useState, useContext, ChangeEvent } from "react";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 
-import './AddressAndPaymeny.scss';
+import './AddressAndPayment.scss';
 import { CartContext } from "../../Hooks/CartContext";
 
 const AddressAndPayment: React.FC = () => {

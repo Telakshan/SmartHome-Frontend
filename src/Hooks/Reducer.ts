@@ -1,8 +1,6 @@
 import { CartItemType } from "../Models/CartItemType";
 import { sumItems } from "./Store";
 
-
-
 export const Reducer = (state: any, action: any) => {
   switch (action.type) {
     case "ADD_ITEM":

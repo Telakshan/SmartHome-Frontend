@@ -8,9 +8,9 @@ const ProductsContextProvider = ({ children }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-     axios.get(`http://localhost:8080/api/products?page=0&size=31`).then((res) => {
+      axios.get(`http://localhost:8080/api/products?page=0&size=31`).then((res) => {
       setItems(res.data._embedded.products);
-    })
+    }) 
   }, []);
 
   return (

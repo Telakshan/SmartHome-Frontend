@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
       <h1>
         This website was made as a portfolio project mainly to demonstrate
         fluency in <span>Microservices architecture, Spring boot and Reactjs. </span>
-        Check out my <a href='https://www.github.com/telakshan'>github</a> for more info 
+        Check out my <a href='https://github.com/Telakshan/SmartHome' target='blank'>github</a> for more info 
       </h1>
     </div>
   );

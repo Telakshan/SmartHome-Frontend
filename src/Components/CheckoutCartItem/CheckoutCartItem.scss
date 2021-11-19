@@ -24,13 +24,17 @@
   }
 
   .quantity {
+    display: grid;
+    grid-auto-flow: column;
+//grid-column-gap: 1px;
     .minus {
       cursor: pointer;
-      margin-right: 2px;
+      //margin-right: 10%;
+      // margin-right: 2px;
     }
     .plus {
       cursor: pointer;
-      margin-left: 2px;
+      // margin-left: 2px;
     }
   }
 
@@ -39,5 +43,10 @@
     padding-right: 12px;
     cursor: pointer;
     color: red;
+  }
+
+  .inactive{
+    opacity: 0.2;
+    cursor: not-allowed;
   }
 }
