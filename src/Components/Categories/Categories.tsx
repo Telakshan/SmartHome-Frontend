@@ -42,7 +42,6 @@ const Categories: React.FC<CategoriesProps & RouteComponentProps> = ({
       </div>
     </>
   );
-  //}
 };
 
 export default withRouter(Categories);

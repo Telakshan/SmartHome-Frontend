@@ -1,3 +1,5 @@
-export const productUrl = "http://localhost:8080/api/products";
-export const stateUrl = "http://localhost:8080/api/states";
-export const countriesUrl = "http://localhost:8080/api/countries";
+const baseUrl = "http://smarthome-env.eba-hyz7zun4.us-west-2.elasticbeanstalk.com/api";
+
+export const productUrl = `${baseUrl}products`;
+export const stateUrl = `${baseUrl}states`;
+export const countriesUrl = `${baseUrl}countries`;
