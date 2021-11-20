@@ -95,6 +95,9 @@
   .navigation-container {
     .logo {
       display: none;
+      &:hover {
+        cursor: default;
+      }
     }
 
     .cart-icon-container {
@@ -110,8 +113,13 @@
       flex: 0.3;
       font-size: 2rem;
       justify-content: center;
-      color: #ff585d;
-      cursor: pointer;
+
+      .icon {
+        &:hover {
+          cursor: pointer;
+          color: #ff585d;
+        }
+      }
     }
   }
 }

@@ -13,7 +13,8 @@ const NavBar: React.FC = () => {
   const wrapper = useRef<HTMLDivElement>(null);
 
   const { itemCount } = useContext(CartContext);
-  const { toggleHeader } = useContext(ApplicationContext);
+  const { toggleHeader, isShowing, toggleDropDown, dropDownActive } =
+    useContext(ApplicationContext);
   const [dropDown, setDropDown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showSideBar, setShowSidebar] = useState(false);
@@ -27,7 +28,16 @@ const NavBar: React.FC = () => {
     if (!(wrapper.current! as any).contains(event.target)) {
       setDropDown(false);
       setShowSidebar(false);
-      toggleHeader();
+      if (isShowing) {
+        toggleHeader();
+      }
+      if(dropDownActive){
+        toggleDropDown();
+      }
+      if(isShowing && dropDownActive){
+        toggleHeader();
+        toggleDropDown();
+      }
     }
   };
 
@@ -56,6 +66,7 @@ const NavBar: React.FC = () => {
 
         <div className="menu-bar">
           <HiMenuAlt2
+            className="icon"
             onClick={() => {
               setShowSidebar(!showSideBar);
               toggleHeader();
@@ -95,7 +106,10 @@ const NavBar: React.FC = () => {
 
           <BiCartAlt
             className="cart-icon"
-            onClick={() => setDropDown(!dropDown)}
+            onClick={() => {
+              setDropDown(!dropDown);
+              toggleDropDown();
+            }}
           />
         </div>
         {dropDown ? <Dropdown /> : null}

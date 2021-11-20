@@ -5,6 +5,7 @@ export const ApplicationContext = createContext(null);
 
 const initialState = {
   isShowing: false,
+  dropDownActive: false
 };
 
 const ApplicationContextProvider: React.FC = ({ children }) => {
@@ -14,8 +15,13 @@ const ApplicationContextProvider: React.FC = ({ children }) => {
     dispatch({ type: "toggleHeader" });
   };
 
+  const toggleDropDown = () => {
+    dispatch({ type: "toggleDropDown" });
+  };
+
   const ContextValues = {
     toggleHeader,
+    toggleDropDown,
     ...state,
   };
 

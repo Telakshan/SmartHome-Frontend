@@ -17,12 +17,12 @@ const Categories: React.FC<CategoriesProps & RouteComponentProps> = ({
   linkUrl,
   history,
 }) => {
-  const { isShowing } = useContext(ApplicationContext);
+  const { isShowing, dropDownActive } = useContext(ApplicationContext);
 
   useEffect(() => {}, [isShowing]);
 
   const goToLink = () => {
-    if (!isShowing) {
+    if (!isShowing && !dropDownActive) {
       history.push(`shop/${linkUrl}`);
     }
   };
@@ -30,7 +30,9 @@ const Categories: React.FC<CategoriesProps & RouteComponentProps> = ({
   return (
     <>
       <div
-        className={`${isShowing ? "category-item-inactive" : "category-item"}`}
+        className={`${
+          isShowing ? "category-item-inactive" : "category-item"
+        }`}
         style={{ backgroundImage: `url(${imageUrl})` }}
         onClick={() => goToLink()}
       >

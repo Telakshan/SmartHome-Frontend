@@ -7,6 +7,7 @@ import { History } from "history";
 
 import "./SearchPage.scss";
 import axios from "axios";
+import { productUrl } from "../../api/constants";
 
 interface SearchPageProps {
   history: History;
@@ -20,7 +21,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ history }) => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/api/products/search/findByNameContainingIgnoreCase?name=${name}`
+        `${productUrl}/search/findByNameContainingIgnoreCase?name=${name}`
       )
       .then((res) => {
         setSearchResults(res.data._embedded.products);

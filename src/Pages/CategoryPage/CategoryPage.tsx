@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import CollectionOfProducts from "../../Components/CollectionOfProducts/CollectionOfProducts";
 import Loading from "../../Components/Loading/Loading";
 import { Product } from "../../Models/Product";
+import { productUrl } from "../../api/constants";
 import "./CategoryPage.scss";
-
 
 const CategoryPage: React.FC = () => {
   const { categoryId } = useParams<{ categoryId?: string }>();
@@ -42,14 +42,10 @@ const CategoryPage: React.FC = () => {
   }
 
   useEffect(() => {
-    axios
-      .get(
-        `http://localhost:8080/api/products/search/findByCategoryId?id=${id}`
-      )
-      .then((res) => {
-        setCategoryProducts(res.data._embedded.products);
-        setIsLoading(false);
-      });
+    axios.get(`${productUrl}/search/findByCategoryId?id=${id}`).then((res) => {
+      setCategoryProducts(res.data._embedded.products);
+      setIsLoading(false);
+    });
   }, [id]);
 
   return (
