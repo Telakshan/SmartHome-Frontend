@@ -8,7 +8,7 @@ const ProductsContextProvider = ({ children }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axios.get(`${productUrl}/?page=0&size=31`).then((res) => {
+    axios.get(`${productUrl}?page=0&size=31`).then((res) => {
       setItems(res.data._embedded.products);
     });
   }, []);
