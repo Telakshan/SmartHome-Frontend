@@ -1,4 +1,5 @@
-const baseUrl = "http://smarthome-env.eba-hyz7zun4.us-west-2.elasticbeanstalk.com/api";
+const baseUrl = "https://powerful-ridge-26829.herokuapp.com/api/";
+//const baseUrl = "http://localhost:8080/api/"
 
 export const productUrl = `${baseUrl}products`;
 export const stateUrl = `${baseUrl}states`;
