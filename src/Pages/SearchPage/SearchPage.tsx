@@ -19,7 +19,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ history }) => {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    axios
+     axios
       .get(
         `${productUrl}/search/findByNameContainingIgnoreCase?name=${name}`
       )
