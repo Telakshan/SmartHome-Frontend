@@ -8,21 +8,21 @@ import { History } from "history";
 import "./SearchPage.scss";
 import axios from "axios";
 import { productUrl } from "../../api/constants";
+import axiosRetry from "axios-retry";
 
 interface SearchPageProps {
   history: History;
 }
 
 const SearchPage: React.FC<SearchPageProps> = ({ history }) => {
-  const { name } = useParams<{name?: string}>();
+  const { name } = useParams<{ name?: string }>();
   const [isLoading, setIsLoading] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-     axios
-      .get(
-        `${productUrl}/search/findByNameContainingIgnoreCase?name=${name}`
-      )
+    axiosRetry(axios, { retries: 3 });
+    axios
+      .get(`${productUrl}/search/findByNameContainingIgnoreCase?name=${name}`)
       .then((res) => {
         setSearchResults(res.data._embedded.products);
         setIsLoading(false);

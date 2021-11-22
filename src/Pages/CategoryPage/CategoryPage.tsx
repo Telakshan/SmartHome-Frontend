@@ -6,6 +6,7 @@ import Loading from "../../Components/Loading/Loading";
 import { Product } from "../../Models/Product";
 import { productUrl } from "../../api/constants";
 import "./CategoryPage.scss";
+import axiosRetry from "axios-retry";
 
 const CategoryPage: React.FC = () => {
   const { categoryId } = useParams<{ categoryId?: string }>();
@@ -42,6 +43,8 @@ const CategoryPage: React.FC = () => {
   }
 
   useEffect(() => {
+    axiosRetry(axios, { retries: 3 });
+
     axios.get(`${productUrl}/search/findByCategoryId?id=${id}`).then((res) => {
       setCategoryProducts(res.data._embedded.products);
       setIsLoading(false);

@@ -50,7 +50,7 @@ const NavBar: React.FC = () => {
     return () => {
       document.removeEventListener("click", handleClickOutside, false);
     };
-  }, [handleClickOutside]);
+  });
 
   return (
     <>

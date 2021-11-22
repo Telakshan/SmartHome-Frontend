@@ -1,5 +1,5 @@
 export const ApplicationReducer = (state, action) => {
-  const { key, type, value } = action;
+  const { type } = action;
 
   switch (type) {
     case "toggleHeader": {
