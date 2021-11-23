@@ -8,7 +8,7 @@ export const ProductsContext = createContext();
 const ProductsContextProvider = ({ children }) => {
   const [items, setItems] = useState([]);
 
-  axiosRetry(axios, { retries: 10 });
+  axiosRetry(axios, { retries: 20 });
 
   useEffect(() => {
     axios.get(`${productUrl}?page=0&size=31`).then((res) => {
