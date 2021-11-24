@@ -20,7 +20,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ history }) => {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    axiosRetry(axios, { retries: 3 });
+    axiosRetry(axios, { retries: 10 });
     axios
       .get(`${productUrl}/search/findByNameContainingIgnoreCase?name=${name}`)
       .then((res) => {

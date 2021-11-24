@@ -43,7 +43,7 @@ const CategoryPage: React.FC = () => {
   }
 
   useEffect(() => {
-    axiosRetry(axios, { retries: 3 });
+    axiosRetry(axios, { retries: 10 });
 
     axios.get(`${productUrl}/search/findByCategoryId?id=${id}`).then((res) => {
       setCategoryProducts(res.data._embedded.products);
