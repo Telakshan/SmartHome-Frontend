@@ -1,6 +1,6 @@
-import React, { createContext, useState, useEffect } from "react";
-import axiosRetry from "axios-retry";
 import axios from "axios";
+import axiosRetry from "axios-retry";
+import React, { createContext, useEffect, useState } from "react";
 import { productUrl } from "../api/constants";
 
 export const ProductsContext = createContext();
@@ -8,7 +8,7 @@ export const ProductsContext = createContext();
 const ProductsContextProvider = ({ children }) => {
   const [items, setItems] = useState([]);
 
-  axiosRetry(axios, { retries: 3 });
+  axiosRetry(axios, { retries: 10 });
 
   useEffect(() => {
     axios.get(`${productUrl}?page=0&size=31`).then((res) => {
