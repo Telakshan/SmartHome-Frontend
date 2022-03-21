@@ -18,27 +18,27 @@ const CategoryPage: React.FC = () => {
 
   switch (categoryId) {
     case "security":
-      id = 4;
+      id = 14;
       categoryName = "Security cameras and Surveillance";
       break;
 
     case "lighting":
-      id = 2;
+      id = 34;
       categoryName = "Lighting";
       break;
 
     case "kitchen":
-      id = 3;
+      id = 24;
       categoryName = "Kitchen and Laundry";
       break;
 
     case "speakers":
-      id = 1;
+      id = 4;
       categoryName = "Speakers and Displays";
       break;
 
     default:
-      id = 1;
+      id = 4;
       categoryName = "Speakers and Displays";
   }
 
